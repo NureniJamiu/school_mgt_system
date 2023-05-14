@@ -21,9 +21,15 @@ class HomeController extends Controller
         return view("landing.home");
     }
 
-    
-    public function test() {
-        return view("dashboard.test");
+    public function showClass($id) {
+        $class = "class".$id;
+
+        // resolve the model class dynamically based on the string value in $class
+        $classModel = app()->make("App\\Models\\$class");
+
+        $data = $classModel::all();
+
+        return view("dashboard.class", compact('data'));
     }
 
     public function login() {
@@ -36,7 +42,7 @@ class HomeController extends Controller
         return view("dashboard.students", compact('data'));
     }
 
-    public function registerView(Request $request) {
+    public function register(Request $request) {
        
         return view("dashboard.register");
     }

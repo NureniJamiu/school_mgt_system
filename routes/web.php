@@ -18,7 +18,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/test', [HomeController::class, 'test']);
 
-Route::get("/dashboard/register_student", [HomeController::class, 'registerView']);
+Route::get("/dashboard/register", [HomeController::class, 'register']);
 
 Route::get("/dashboard/students", [HomeController::class, 'showStudents'])->name('/dashboard/students');
 
@@ -29,6 +29,8 @@ Route::get('/search', [HomeController::class, 'search']);
 Route::get('/dashboard/students/update/{id}', [HomeController::class, 'update_view']);
 
 Route::get('/dashboard/students/delete/{id}', [HomeController::class, 'delete']);
+
+Route::get('/dashboard/class/{id}', [HomeController::class, 'showClass']);
 
 Route::post('/update/{id}', [HomeController::class, 'update']);
 
